@@ -25,9 +25,12 @@ function changeSlide() {
 	numero = numero + 1 ;
 	if ( numero >3)
 	numero = 0
-	if (numero <0)
-	numero = 3
+	//if (numero <0)
+	//numero = 3
 document.getElementById("slide").src= "./assets/images/slideshow/" + slides[numero].image;
+dotSelected();  //function
+document.getElementsByClassName("dot")[numero].classList.add("active");
+
 }
 const flechePrecedent=document.querySelector("#precedent")
 flechePrecedent.addEventListener("click" , changeSlidePrecedent )
@@ -39,10 +42,17 @@ function changeSlidePrecedent() {
 	if (numero <0)
 	numero = 3
 document.getElementById("slide").src= "./assets/images/slideshow/" + slides[numero].image;
+dotSelected();
+document.getElementsByClassName("dot")[numero].className="dot active";
 }
-const dots=document.querySelectorAll(".dot")
+const dots=document.querySelectorAll(".dot")  // dot c'est tableau
 function dotSelected(){
 	dots.forEach(element=>
 		element.classList.remove("active"))
+		
 
-}
+} 
+
+
+
+
